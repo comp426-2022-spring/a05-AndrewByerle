@@ -98,6 +98,12 @@ const server = app.listen(port, () => {
     console.log('App is running on port %PORT%'.replace('%PORT%', port))
 })
 
+// from a5 directions for call
+app.post('/app/flip/call/', (req, res, next) => {
+    const game = flipACoin(req.body.guess)
+    res.status(200).json(game)
+})
+
 app.get('/app/', (req, res) => {
     res.json({ "message": "Your API works! (200)" });
     res.status(200);
